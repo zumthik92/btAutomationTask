@@ -1,4 +1,4 @@
-from base_page import BasePage
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
@@ -8,6 +8,8 @@ class ProductsPage(BasePage):
     add_to_cart = "button[data - test = 'add-to-cart-sauce-labs-backpack’]"
     sort_option = "select[data-test= 'product_sort_container']"
     your_cart = "//span[@class='title']"
+    add_to_cart_item1 = "//button[@id='add-to-cart-sauce-labs-backpack']"
+    add_to_cart_item2 = "//button[@data-test='add-to-cart-sauce-labs-onesie']"
 
     def verify_default_sort_order(self):
         product_names = self.driver.find_elements(By.CSS_SELECTOR, ProductsPage.products)

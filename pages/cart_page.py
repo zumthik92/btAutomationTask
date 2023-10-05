@@ -18,16 +18,16 @@ class CartPage(BasePage):
     def verify_item_retention_in_cart(self):
         # add item to cart
         wait = WebDriverWait(self.driver, 10)
-        self.driver.find_element(By.XPATH, ProductsPage.add_to_cart_item1).click()
-        self.driver.find_element(By.XPATH, ProductsPage.add_to_cart_item2).click()
+        self.driver.refresh()
+        add_to_cart_btns = self.driver.find_elements(By.CSS_SELECTOR, ProductsPage.add_to_cart_btn)
+        for button in add_to_cart_btns[:3]:
+            button.click()
         self.driver.find_element(By.XPATH, CartPage.cart).click()
 
+    def check_the_products_retained(self):
+        self.driver.find_element(By.XPATH, CartPage.cart).click()
 
-
-
-    def verify_input_field_for_form_fields():
-        pass
-
-
-
-
+    # def verify_input_field_for_form_fields(self):
+    # wait = WebDriverWait(self.driver, 5)
+    # fName = self.driver.find_element(By.XPATH, CartPage.form_first_name).click()
+    # fName.sendkeys("test")
